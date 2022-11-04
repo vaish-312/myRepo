@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ASPLoginModel3StoreContainer" CdmEntityContainer="ASPLoginEntities5">
+    <EntitySetMapping Name="UserActivities">
+      <EntityTypeMapping TypeName="ASPLoginModel3.UserActivity">
+        <MappingFragment StoreEntitySet="UserActivity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Actitvity" ColumnName="Actitvity" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Assignment2Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DemoData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Details" Relationship="Self.fk_Id" FromRole="DemoData" ToRole="Detail" />
+  </EntityType>
+  <EntityType Name="Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Timing" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="User_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DemoData" Relationship="Self.fk_Id" FromRole="Detail" ToRole="DemoData" />
+  </EntityType>
+  <Association Name="fk_Id">
+    <End Role="DemoData" Type="Self.DemoData" Multiplicity="1" />
+    <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DemoData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detail">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Assignment2Entities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DemoDatas" EntityType="Self.DemoData" />
+    <EntitySet Name="Details" EntityType="Self.Detail" />
+    <AssociationSet Name="fk_Id" Association="Self.fk_Id">
+      <End Role="DemoData" EntitySet="DemoDatas" />
+      <End Role="Detail" EntitySet="Details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

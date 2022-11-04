@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Assignment2Model2StoreContainer" CdmEntityContainer="Assignment2Entities3">
+    <EntitySetMapping Name="InfoRecs">
+      <EntityTypeMapping TypeName="Assignment2Model2.InfoRec">
+        <MappingFragment StoreEntitySet="InfoRec">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

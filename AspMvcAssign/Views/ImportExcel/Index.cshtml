@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Raw(ViewBag.Error);
+    <div class="row">
+        <div class="col-sm-12" style="padding-bottom:20px">
+
+            <div class="col-sm-2">
+                <span>Select File  :</span>
+            </div>
+            <div class="col-sm-3">
+                <input class="form-control" type="file" name="file" id="file" required/>
+            </div>
+            <div class="col-sm-3" style="margin-top:5px;">
+                <input class="btn btn-primary" id="btnUpload" type="submit"/>
+            </div>
+        </div>
+    </div>
+
+}
+<div>
+    <a href="/Details/Index" style="text-decoration: none; margin-top: 10px;">Back to HomePage</a>
+
+</div>

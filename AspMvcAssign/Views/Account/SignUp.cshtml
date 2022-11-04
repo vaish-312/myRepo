@@ -1,0 +1,47 @@
+﻿@model AspMvcAssign.Models.DemoData
+
+@{
+    ViewBag.Title = "SignUp";
+}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h2>SignUp</h2>
+        <P style="color:red">@ViewBag.showerror</P>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-10">
+                        <input type="submit" value="Signup" class="btn btn-dark" style="margin-top:10px;" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            <a href="/Account/Login" style="text-decoration: none; margin-top: 10px; ">Back to Login</a>
+        </div>
+
+    </div>
+</div>
